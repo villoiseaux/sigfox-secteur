@@ -4,10 +4,6 @@ require "init.php";
 $json_token = json_decode(file_get_contents('php://input'), true);
 $token=$json_token["token"];
 
-ini_set ("log_error", 1);
-ini_set ("error_log", "/tmp/php-error.log");
-error_log("token=".$token."\n");
-
 if (!preg_match('/^[a-zA-Z0-9 .\-.\_.\:]+$/i', $token)) {
         header('HTTP/1.0 400  Server error');
         exit;
