@@ -1,0 +1,47 @@
+<div class="row dn-page">
+    <div class="col">
+        <div class="row grid">
+            <div class="col-md-12">
+                <div class="card dn-title">
+                    <div class="card-block">Votre validation de création de compte</div>
+                </div>                    
+            </div>
+        </div>
+
+        <div class="row bottom-30 grid" >
+            <div class= "col">
+                <div class="card dn-content">
+                    <div class="square square-top"></div>
+
+                    <div class="card-block widget-body"> 
+
+                        <div class="row bottom-30 grid">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+                                        
+                                        <div *ngIf="success">
+                                            <div class="alert alert-success">{{success}}</div>
+                                            <p>Pour vous inscrire aux POCs ou consultez votre compte, identifiez-vous :</p> 
+                                        </div>
+                                    </div>
+                                </div>                    
+                            </div>
+                        </div>
+                         <div class="row grid" *ngIf="success">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div><button type="button" class="btn btn-info btn-rounded" (click)="login()">Je m'identifie</button></div>                                    
+                                </div>                    
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="square square-bottom"></div>
+                </div>
+            </div>
+        </div>
+    <div><button type="button" class="btn btn-primary btn-rounded" routerLink="/">Retour au catalogue</button></div>
+  </div>
+</div>

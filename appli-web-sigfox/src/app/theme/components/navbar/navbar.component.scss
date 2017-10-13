@@ -1,0 +1,159 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+#lines{ 
+    border-bottom: 7px double;
+    border-top: 2px solid;
+    border-color: rgba(255, 255, 255, 0.9);
+    content: "";
+    height: 3px;
+    width: 20px;
+    box-sizing: content-box;
+    cursor: pointer;
+    &:hover{
+        opacity: 0.8;
+    }
+}
+
+.app-search{
+    position: relative;
+    margin-left: 20px;
+    a {        
+        position: absolute;
+        top: 3px;
+        right: 14px;
+        font-size: 16px;
+        color: rgba($navbar-text-color, 0.3);
+    }
+    .form-control {
+        border: 1px solid rgba($navbar-text-color,0.1);
+        font-size: 13px;
+        letter-spacing: 0.03em;
+        height: 30px;
+        color: $navbar-text-color;
+        padding: 7px 40px 7px 20px;
+        background: rgba($navbar-text-color,0.05);
+        box-shadow: none;
+        border-radius: 30px;
+        width: 190px;
+    }
+}
+
+.user-menu{
+    font-size: 14px;
+    .dropdown-toggle::after{
+        display: none;
+    }
+    .dropdown-menu{
+        right: 0;
+        left: auto;
+        margin-top: 10px;
+        padding-top: 0;
+        overflow: hidden;
+        border-radius: 0;
+        font-size: 14px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        a {
+            color: $main-color;     
+            &:hover {
+                color: $navbar-text-color;
+                background-color: $main-color;
+            }
+            i{
+                margin-right: 8px;
+            }
+        }
+    }
+}
+
+.user-link{
+    margin-right: 6px;
+    span{
+        color: $navbar-text-color;
+        margin-left: 7px;
+        letter-spacing: 0.02em;
+    }
+    img{
+        width: 40px;
+        border-radius: 50%;
+    }
+    &:hover, &:focus{
+        text-decoration: none;
+    }   
+}
+
+.user-info{
+    background-color: $main-color;
+    padding: 8px;
+    text-align: center;
+    width: 240px;
+    margin-bottom: 5px;
+    img{
+        width: 100px;
+        margin-top: 5px;
+        border-radius: 50%;
+    }
+    p{   
+        color: #ebebeb;
+        margin-top: 10px;
+    }
+    small{
+        display: block;
+    }
+}
+
+
+@media (max-width: 767px){ 
+    .nav.az-navbar .navbar-brand{
+        width: auto;
+    }
+}
+
+/************* Custom design *************/
+
+.nav.az-navbar{
+    height: 100px;
+    align-items: center;
+    .navbar-brand{
+        width: 205px;
+        padding-top: 0;
+        font-size: 0;
+        margin-left: 30px;
+    }
+    .hidden-sm-down {
+        height: 135px;
+        margin-top: 38px;
+    }
+    background-color: #33394d;
+    *zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFFFF00', endColorstr='#FFFE0000');
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIzMCUiIHN0b3AtY29sb3I9IiNmZmZmMDAiLz48c3RvcCBvZmZzZXQ9IjMwJSIgc3RvcC1jb2xvcj0iI2ZmZmYwMCIvPjxzdG9wIG9mZnNldD0iMzAlIiBzdG9wLWNvbG9yPSIjZmUwMDAwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(35%, white), color-stop(35%,white), color-stop(35%, #33394d));
+    background-image: -moz-linear-gradient(top, white 35%, white 35%, #33394d 35%);
+    background-image: -webkit-linear-gradient(top, white 35%, white 35%, #33394d 35%);
+    background-image: linear-gradient(to bottom, white 35%, white 35%, #33394d 35%);
+    width: 100%;
+}
+
+//@include placeholder-color(rgba($navbar-text-color,0.5));
+.right-section{
+    position: absolute;
+    right: 30px;
+}
+
+.right-section .btn-secondary {
+    color:white;
+    border:none;
+    font-size: 14px;
+}
+
+.btn-orange { background-color: #f99d1c; padding-left: 20px; padding-right: 20px; width:40% !important;}
+.btn-green { background-color: #509e30;}
+.btn-light-green { background-color: #c4d600; width:30% !important;}
+.btn-blue { background-color: #005bbb; padding-left: 40px; padding-right: 40px; width:50% !important;}
+.btn-dark-blue { background-color: #001a70; padding-left: 40px; padding-right: 40px; width:50% !important;}
+.first-row{height:35px;}
+.second-row{height:65px;}
+
+

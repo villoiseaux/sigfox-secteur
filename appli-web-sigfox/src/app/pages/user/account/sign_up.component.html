@@ -1,0 +1,111 @@
+<div class="row dn-page">
+    <div class="col">
+        <div class="row grid">
+            <div class="col-md-12">
+                <div class="card dn-title">
+                    <div class="card-block">Créer votre compte</div>
+                </div>                    
+            </div>
+        </div>
+
+        <div class="row bottom-30 grid">
+            <div class= "col">
+                <div class="card dn-content">
+                    <div class="square square-top"></div>
+                    <div class="card-block widget-body">
+			 <form [formGroup]="form" (ngSubmit)="create(form.value)"> 
+                         <div class="row bottom-30 grid">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <p class="text-right">* Champs obligatoires</p>
+                                        <h5 class="text-primary">Informations de connexion</h5>
+                                    </div>                    
+                                </div>
+                            </div>
+
+                            <div class="row bottom-15 grid dn-left">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="lastName">Mon nom *</label>                                        
+                                        <input [formControl]="lastName" class="form-control checking-field" type="text">
+                                        <span class="help-block" *ngIf="form.get('lastName').touched">
+                                            <span class="text-danger" *ngIf="form.get('lastName').hasError('required')">Votre nom est requis</span>
+                                            <span class="text-danger" *ngIf="form.get('lastName').hasError('invalidLastName')">Votre nom n'est pas valide</span>
+                                        </span> 
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="name">Mon prénom *</label>
+                                        <input [formControl]="name" class="form-control checking-field" type="text">
+                                        <span class="help-block" *ngIf="form.get('name').touched">
+                                            <span class="text-danger" *ngIf="form.get('name').hasError('required')">Votre prénom est requis</span>
+                                            <span class="text-danger" *ngIf="form.get('name').hasError('invalidName')">Votre prénom n'est pas valide</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row bottom-15 grid dn-left">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="email">Saisissez une adresse email *</label>                                        
+                                            <input [formControl]="email" class="form-control checking-field" type="text">
+                                            <span class="help-block" *ngIf="form.get('email').touched">
+                                                <span class="text-danger" *ngIf="form.get('email').hasError('required')">Votre adresse email est requise</span>
+                                                <span class="text-danger" *ngIf="form.get('email').hasError('invalidEmail')">Votre adresse email n'est pas valide</span>
+                                            </span> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row bottom-30 grid dn-left">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="password">Choisissez un mot de passe *</label>
+                                        <input [formControl]="password" class="form-control checking-field" type="password">
+                                        <span class="help-block" *ngIf="form.get('password').touched">
+                                            <span class="text-danger" *ngIf="form.get('password').hasError('required')">Votre mot de passe est requis</span>
+                                            <span class="text-danger" *ngIf="form.get('password').hasError('invalidPassword')">Votre mot de passe doit comporter au moins 8 caractères ainsi qu'une minuscule, une majuscule, un chiffre et un caractère spécial</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Confirmez le mot de passe *</label>
+                                        <input [formControl]="confirmPassword" class="form-control checking-field" type="password">
+                                        <span class="help-block" *ngIf="form.get('confirmPassword').touched">
+                                            <span class="text-danger" *ngIf="form.get('confirmPassword').hasError('required')">La confirmation du mot de passe est requise</span>
+                                            <span class="text-danger" *ngIf="form.get('confirmPassword').hasError('mismatchedPasswords')">Vos mots de passe ne correspondent pas</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row grid" style="margin-top: 50px;">
+                                <div class="col-sm-6">
+                                    <div class="form-group" *ngIf="!success">
+                                        <div><button [disabled]="!form.valid" class="btn btn-info btn-rounded" type="submit">Je m'inscris</button></div>                         
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row grid">
+                                <div class="col-md-12">
+                                    <div *ngIf="error">
+                                        <div class="alert alert-danger">{{error}}</div>
+                                    </div>
+                                    <div *ngIf="success">
+                                        <div class="alert alert-success">{{success}}</div>
+                                    </div> 
+                                </div>
+                            </div>
+			</form>
+                      </div>
+                <div class="square square-bottom"></div>
+            </div>
+        </div>
+    </div>
+    <div><button type="button" class="btn btn-primary btn-rounded" routerLink="/">Retour à la page d'accueil</button></div>
+  </div>
+</div>                              

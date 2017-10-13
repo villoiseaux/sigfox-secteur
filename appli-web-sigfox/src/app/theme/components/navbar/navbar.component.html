@@ -1,0 +1,30 @@
+<nav class="nav az-navbar fixed-top">
+    <a class="navbar-brand" routerLink="">
+        <img src="../assets/img/logo/square_logo.png" alt="" class="hidden-sm-down"> 
+        <img src="../assets/img/logo/logo_edf.png" alt="" class="hidden-md-up"> 
+    </a>
+
+    <ul class="nav right-section">
+        <div class="d-inline-block">
+            <div class="btn-group-vertical" role="group">
+                    <div class="btn-group first-row" role="group">
+                        <button type="button" class="btn btn-secondary btn-orange" [routerLink]="['/faq']">FAQ</button>
+                        <button type="button" class="btn btn-secondary btn-green" [routerLink]="['/contact']">Contactez-nous</button>
+                        <button type="button" class="btn btn-secondary btn-light-green" [routerLink]="['/contact']"><i class="socicon socicon-mail transition"></i></button>
+                    </div>
+                    <div class="btn-group second-row" role="group" *ngIf="!isConnected">
+                        <button type="button" class="btn btn-secondary btn-blue" data-toggle="modal" data-target="#login-modal">M'identifier</button>
+                        <button type="button" class="btn btn-secondary btn-dark-blue" [routerLink]="['/sign_up']">Créer mon compte</button>
+                    </div>
+                    <div class="btn-group second-row" role="group" *ngIf="isConnected">
+                        <button type="button" class="btn btn-secondary btn-blue" [routerLink]="['/profile']" >Gérer mon compte</button>
+                        <button type="button" class="btn btn-secondary btn-dark-blue" (click)="logOut()">Me déconnecter</button>
+                    </div>
+            </div>
+        </div>
+    </ul>
+</nav>
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" style="display: none;">
+    <login></login>
+</div>

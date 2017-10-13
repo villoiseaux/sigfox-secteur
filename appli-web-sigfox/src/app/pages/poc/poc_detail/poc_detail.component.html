@@ -1,0 +1,53 @@
+<div class="row dn-page">
+    <div class="col">
+        <div *ngIf="poc">
+            <div class="row grid">
+                <div class="col-md-12">
+                    <div class="card dn-title">
+                        <div class="card-block">Présentation de {{poc.label}}</div>
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="row bottom-30 grid">
+                <div class= "col">
+                    <div class="card dn-content">
+                        <div class="row bottom-30 grid">
+                            <div class="square square-top"></div>
+                        </div>
+
+                        <div class="card-block widget-body"> 
+
+                            <div class="row bottom-30 grid">
+                                <div class="col-6 col-md-4">
+                                    <div class="card">
+                                        <img class="w-100" src="{{poc.picture}}" alt="{{poc.label}}">
+                                    </div>                    
+                                </div>
+                                <div class="col-12 col-sm-6 col-md-8">
+                                    <div class="card dn-left">
+                                        <div class="card-block">{{poc.description}}</div>
+                                    </div>                    
+                                </div>
+                            </div>
+                            <div class="row grid">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div><button type="button" class="btn btn-info btn-rounded" (click)="participate()">Ajouter à mes favoris</button></div>                                    
+                                    </div>                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="square square-bottom"></div>
+                    </div>
+                </div>
+            </div>
+            <div><button type="button" class="btn btn-primary btn-rounded" routerLink="/">Retour au catalogue</button></div>
+        </div>
+        <div *ngIf="error">
+            <div class="alert alert-danger">{{error}}</div>
+            <div><button type="button" class="btn btn-primary btn-rounded" routerLink="/">Retour au catalogue</button></div>
+        </div>
+  </div>
+</div>

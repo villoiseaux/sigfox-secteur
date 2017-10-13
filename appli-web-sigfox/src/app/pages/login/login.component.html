@@ -1,0 +1,57 @@
+<div class="modal-dialog dn-modal" role="document">
+    <div class="modal-content">
+        <div class="square square-top"></div>
+        <div class="modal-header">
+            <h5 class="modal-title text-primary" id="modal-label">Je m'identifie</h5>
+            <button type="button" class="close text-primary" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="form" (ngSubmit)="login(form.value)">
+                <div class="row bottom-15 grid dn-left">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="email">Mon adresse email *</label>                                        
+                            <input [formControl]="email" class="form-control checking-field" type="text">
+                            <span class="help-block" *ngIf="form.get('email').touched">
+                                <span class="text-danger" *ngIf="form.get('email').hasError('required')">Votre adresse email est requise</span>
+                                <span class="text-danger" *ngIf="form.get('email').hasError('invalidEmail')">Votre adresse email n'est pas valide</span>
+                            </span> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row bottom-15 grid dn-left">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="password">Mon mot de passe *</label>
+                            <input [formControl]="password" class="form-control checking-field" type="password">
+                            <span class="help-block" *ngIf="form.get('password').touched">
+                                <span class="text-danger" *ngIf="form.get('password').hasError('required')">Votre mot de passe est requis</span>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-link" (click)="askNewPassword(form.value)">J'ai oublié mon mot de passe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row grid">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div><button [disabled]="!form.valid" class="btn btn-info btn-rounded" type="submit">Je m'identifie</button></div>                                    
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-link" (click)="goToCreateAccount()">Je n'ai pas encore de compte</button>
+                        </div>
+                        <div *ngIf="error">
+                            <div class="alert alert-danger">{{error}}</div>
+                        </div>
+                        <div *ngIf="success">
+                            <div class="alert alert-success">{{success}}</div>
+                        </div>                
+                    </div>
+                </div>
+            </form>            
+        </div>
+        <div class="square square-bottom"></div>
+    </div>
+</div>
+  

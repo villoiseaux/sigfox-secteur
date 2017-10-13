@@ -1,0 +1,112 @@
+<div class="row dn-page">
+    <div class="col">
+        <div class="row grid">
+            <div class="col-md-12">
+                <div class="card dn-title">
+                    <div class="card-block">Contactez-nous</div>
+                </div>                    
+            </div>
+        </div>
+
+        <div class="row bottom-30 grid">
+            <div class= "col">
+                <div class="card dn-content">
+                    <div class="square square-top"></div>
+                    <div class="card-block widget-body"> 
+                        <form [formGroup]="form" (ngSubmit)="sendMessage(form.value)">
+                            <div class="row bottom-30 grid">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <p>Adressez-nous vos questions en utilisant le formulaire ci-dessous. <br /> Notre équipe vous répondra dans les meilleurs délais.</p>
+                                    </div>                    
+                                </div>
+                            </div>
+
+                            <div class="row bottom-15 grid dn-left">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="form-group">
+                                        <label for="email">Mon adresse email *</label>                                        
+                                        <input [formControl]="email" class="form-control checking-field" type="text">
+                                            <span class="help-block" *ngIf="form.get('email').touched">
+                                                <span class="text-danger" *ngIf="form.get('email').hasError('required')">Votre adresse email est requise</span>
+                                                <span class="text-danger" *ngIf="form.get('email').hasError('invalidEmail')">Votre adresse email n'est pas valide</span>
+                                            </span> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row bottom-15 grid dn-left">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="form-group">
+                                        <label for="lastName">Mon nom *</label>                                        
+                                        <input [formControl]="lastName" class="form-control checking-field" type="text">
+                                        <span class="help-block" *ngIf="form.get('lastName').touched">
+                                            <span class="text-danger" *ngIf="form.get('lastName').hasError('required')">Votre nom est requis</span>
+                                            <span class="text-danger" *ngIf="form.get('lastName').hasError('invalidLastName')">Votre nom n'est pas valide</span>
+                                        </span> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row bottom-15 grid dn-left">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="form-group">
+                                        <label for="name">Mon prénom *</label>
+                                        <input [formControl]="name" class="form-control checking-field" type="text">
+                                        <span class="help-block" *ngIf="form.get('name').touched">
+                                            <span class="text-danger" *ngIf="form.get('name').hasError('required')">Votre prénom est requis</span>
+                                            <span class="text-danger" *ngIf="form.get('name').hasError('invalidName')">Votre prénom n'est pas valide</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row bottom-15 grid dn-left">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="form-group">
+                                        <label for="subject">Le sujet de mon message *</label>
+                                        <input [formControl]="subject" class="form-control checking-field" type="text">
+                                        <span class="help-block" *ngIf="form.get('subject').touched">
+                                            <span class="text-danger" *ngIf="form.get('subject').hasError('required')">Le sujet du message est requis</span>
+                                            <span class="text-danger" *ngIf="form.get('subject').hasError('minlength')">Le sujet n'est pas valide</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row bottom-15 grid dn-left">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="form-group">
+                                        <label for="message">Mon message *</label>
+                                        <textarea [formControl]="message" rows="5" class="form-control checking-field" type="text"></textarea>
+                                        <span class="help-block" *ngIf="form.get('message').touched">
+                                            <span class="text-danger" *ngIf="form.get('message').hasError('required')">Votre message est requis</span>
+                                            <span class="text-danger" *ngIf="form.get('message').hasError('minlength')">Votre message n'est pas valide</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <div class="row grid">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div><button [disabled]="!form.valid" class="btn btn-info btn-rounded" type="submit">Envoyer mon message</button></div>                  
+                                    </div>
+                                    <div *ngIf="error">
+                                        <div class="alert alert-danger">{{error}}</div>
+                                    </div>
+                                    <div *ngIf="success">
+                                        <div class="alert alert-success">{{success}}</div>
+                                    </div>                
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                <div class="square square-bottom"></div>
+            </div>
+        </div>
+    </div>
+    <div><button type="button" class="btn btn-primary btn-rounded" routerLink="/">Retour à la page d'accueil</button></div>
+  </div>
+</div>                          

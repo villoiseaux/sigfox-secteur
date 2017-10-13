@@ -1,0 +1,23 @@
+<div class="catalogue">
+    <img alt="Administration des sondes de coupure de courant." class="home-image" src="assets/img/app/home_slide.png">
+    <div class="row cards" *ngIf="pocs">
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 bottom-30" *ngFor = "let poc of pocs">       
+            <div class="card home">
+                <div class="card-footer">
+                    <img alt="Sondes de coupure secteur" class="sondes-coupures"  src="assets/img/app/sondes_coupures.png">
+                    <div [ngSwitch]="poc.status">
+                        <img *ngSwitchCase="'ON'" alt="Status des sondes" class="sondes-voyant" src = "assets/img/app/sonde_on.png">
+                        <img *ngSwitchCase="'OFF'" alt="Status des sondes" class="sondes-voyant" src = "assets/img/app/sonde_off.png">
+                    </div>
+                    <p class="poc-uid">{{poc.uid}}</p>
+                    <p class="poc-info"><em>Dernière émission : </em>{{poc.lastseen|date:'short'}}</p>
+                    <div [ngSwitch]="poc.favorite">
+                        <button *ngSwitchCase="'false'" type="button" class="btn btn-info btn-rounded" style="float: right;" (click)="changeFavoritePocs(poc)">Ajouter aux favoris</button>
+                        <button *ngSwitchCase="'true'" type="button" class="btn btn-info btn-rounded" style="float: right;" (click)="changeFavoritePocs(poc)">Supprimer des favoris</button>
+                    </div>
+                    <button type="button" class="btn btn-info btn-rounded" style='float:right; margin-right: 10px;' routerLink="/poc_detail/{{poc.uid}}">En savoir +</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

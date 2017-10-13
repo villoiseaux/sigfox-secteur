@@ -1,0 +1,49 @@
+<div class="row dn-page">
+    <div class="col">
+        <div class="row grid">
+            <div class="col-md-12">
+                <div class="card dn-title">
+                    <div class="card-block">Mon compte</div>
+                </div>                    
+            </div>
+        </div>
+        <div class="row bottom-30 grid">
+            <div class="col-md-6">
+            <div class="card dn-btn-section">
+                    <button type="button" class="btn btn-primary btn-block transition" [routerLink]="['/profile']">Mes infos</button>                            
+                </div>                     
+            </div>
+            <div class="col-md-6">
+                <div class="card dn-btn-section right">
+                    <button type="button" class="btn btn-main btn-block transition inactive" [routerLink]="['/favorite']">Mes sondes en favoris</button>                            
+                </div>                        
+            </div>
+        </div>
+        <div class="row bottom-30 grid">
+            <div class= "col">
+                <div class="card dn-content">
+                    <div class="square square-top"></div>
+                    <div class="card-block widget-body"> 
+                        <div class="row cards" *ngIf="pocs">
+                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 bottom-30" *ngFor = "let poc of pocs">       
+                                <div class="card home">
+                                    <div class="card-footer">
+                                    <img alt="Sondes de coupure secteur" class="sondes-coupures"  src="assets/img/app/sondes_coupures.png">
+                                    <div [ngSwitch]="poc.status">
+                                        <img *ngSwitchCase="'ON'" alt="Status des sondes" class="sondes-voyant" src = "assets/img/app/sonde_on.png">
+                                        <img *ngSwitchCase="'OFF'" alt="Status des sondes" class="sondes-voyant" src = "assets/img/app/sonde_off.png">
+                                    </div>
+                                    <p class="poc-uid">{{poc.uid}}</p>
+                                    <p class="poc-info"><em>Dernière émission : </em>{{poc.lastseen|date:'short'}}</p>
+                                    <button type="button" class="btn btn-info btn-rounded" style="float: right;" (click)="changeFavorite(poc)">Supprimer des favoris</button>
+                                    </div>
+                                    <button type="button" class="btn btn-info btn-rounded" style='float:right; margin-right: 10px;' routerLink="/poc_detail/{{poc.uid}}">En savoir +</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div><button type="button" class="btn btn-primary btn-rounded" routerLink="/">Retour à la page d'accueil</button></div>
+        </div>
+    </div>
+</div>

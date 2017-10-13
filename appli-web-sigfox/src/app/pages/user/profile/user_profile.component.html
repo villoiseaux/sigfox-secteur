@@ -1,0 +1,99 @@
+<div class="row dn-page">
+    <div class="col">
+        <div class="row grid">
+            <div class="col-md-12">
+                <div class="card dn-title">
+                    <div class="card-block">Mon compte</div>
+                </div>                    
+            </div>
+        </div>
+        <div class="row bottom-30 grid">
+            <div class="col-md-6">
+            <div class="card dn-btn-section">
+                    <button type="button" class="btn btn-primary btn-block transition" [routerLink]="['/profile']">Mes infos</button>                            
+                </div>                     
+            </div>
+            <div class="col-md-6">
+                <div class="card dn-btn-section right">
+                    <button type="button" class="btn btn-main btn-block transition inactive" [routerLink]="['/favorite']">Mes sondes en favoris</button>                            
+                </div>                        
+            </div>
+        </div>
+
+        <div class="row bottom-30 grid">
+            <div class= "col">
+                <div class="card dn-content">
+                    <div class="square square-top"></div>
+                    <div class="card-block widget-body"> 
+                        <form *ngIf="user">
+                            <div class="row bottom-30 grid">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <h5 class="text-primary">Informations de connexion</h5>
+                                    </div>                    
+                                </div>
+                            </div>
+
+                            <div class="row bottom-15 grid dn-left">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Mon adresse email</label>
+                                        <p class="text-primary">{{user.email}}</p>                                        
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Mon mot de passe</label>
+                                        <p><button type="button" class="btn btn-link dn-link-button" data-toggle="modal" data-target="#password-modal">Je change mon mot de passe</button></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="square"></div>
+                            <hr class="dn-hr">
+                            
+                            <div class="row bottom-15 grid">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-block">
+                                            <h5 class="text-primary">Informations personnelles</h5>
+                                        </div>
+                                    </div>                    
+                                </div>
+                            </div>
+
+                            <div class="row bottom-15 grid dn-left">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Mon nom</label>                                        
+                                        <p class="text-primary">{{user.lastName}}</p>                                        
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="name">Mon prénom</label>
+                                        <p class="text-primary">{{user.firstName}}</p>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row grid" style="margin-top: 50px;">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div><button class="btn btn-info btn-rounded" type="button" routerLink="/edit_profile">Je modifie mes informations</button></div>                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+                <div class="square square-bottom"></div>
+            </div>
+            </div>
+        </div>
+        <div><button type="button" class="btn btn-primary btn-rounded" routerLink="/">Retour à la page d'accueil</button></div>
+    </div>
+</div>
+
+<div class="modal fade" id="password-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" style="display: none;">
+    <user_edit_password></user_edit_password>
+</div>
