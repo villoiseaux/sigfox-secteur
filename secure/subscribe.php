@@ -15,6 +15,43 @@ if (!preg_match('/^[a-zA-Z0-9 .\-.\_.\:]+$/i', $token)) {
 	exit;
 }
 
+// add fcminsert (insert device if not exists)
+$res_test_exist = pg_query($conn, 'select * from devices where token = \''.$token.'\';');
+if($res_test_exist==false){
+       header('HTTP/1.0 400 Server error');
+       exit;
+}
+$row_test_exist = pg_fetch_row($res_test_exist);
+$existance = $row_test_exist[0];
+if(!$existance){
+	$res = pg_query($conn, ' insert into devices (token) values (\''.$token.'\');');
+	if($res==false){
+        	header('HTTP/1.0 400 Server error');
+        	exit;
+        }
+}
+
+
+
+// Add sonde if not exists
+// search the sonde (probe)
+$res_test_exist = pg_query($conn, 'select * from sondes where mac = \''.$mac.'\';');
+if($res_test_exist==false){
+       header('HTTP/1.0 400 Server error');
+       exit;
+}
+// if not found insert it
+$row_test_exist = pg_fetch_row($res_test_exist);
+$existance = $row_test_exist[0];
+if(!$existance){
+	$res = pg_query($conn, ' insert into sondes (mac) values (\''.$mac.'\');');
+	if($res==false){
+        	header('HTTP/1.0 400 Server error');
+        	exit;
+        }
+}
+
+// Add link device <->sonde
 $res = pg_query($conn, ' Select id from sondes where mac = \''.$mac.'\';');
 if($res==false){ 
         header('HTTP/1.0 400 Erreur B');
